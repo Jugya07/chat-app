@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import userRoutes from "./src/routes/user.js";
+import userRoutes from "./routes/user.js";
 import morgan from "morgan";
 
 dotenv.config();
