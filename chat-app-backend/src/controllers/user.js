@@ -2,7 +2,7 @@ import User from "../models/user.js";
 import { generateTokenId } from "../utils/generateToken.js";
 import { setPassword, validPassword } from "../utils/generatePassword.js";
 
-const user_signup = async (req, res) => {
+const signup = async (req, res, next) => {
   try {
     const { name, email, password, pic } = req.body;
     if (!name || !email || !password) {
@@ -13,6 +13,7 @@ const user_signup = async (req, res) => {
       return res.status(422).json({ error: "User already exists" });
     }
     const { hashPassword, salt } = setPassword(password);
+
     const newUser = await User.create({
       name,
       email,
@@ -27,11 +28,12 @@ const user_signup = async (req, res) => {
       token: generateTokenId(newUser._id),
     });
   } catch (err) {
+    console.log(err);
     return res.status(500).json({ error: err.message });
   }
 };
 
-const user_login = async (req, res) => {
+const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -55,4 +57,4 @@ const user_login = async (req, res) => {
   }
 };
 
-export { user_signup, user_login };
+export default { signup, login };
