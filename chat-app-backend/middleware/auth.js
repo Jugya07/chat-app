@@ -18,7 +18,7 @@ const auth = catchAsync(async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    next(new ApiError("Invalid / Non existant access token", 401));
+    return next(new ApiError("Invalid / Non existant access token", 401));
   }
 });
 

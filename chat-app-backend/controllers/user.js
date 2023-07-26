@@ -23,12 +23,12 @@ const signup = catchAsync(async (req, res, next) => {
     pic,
   });
 
-  user.password = undefined;
-  user.salt = undefined;
+  newUser.password = undefined;
+  newUser.salt = undefined;
   return res.json({
     status: "success",
     message: "User created successfully",
-    user: user,
+    user: newUser,
     token: generateTokenId(newUser._id),
   });
 });

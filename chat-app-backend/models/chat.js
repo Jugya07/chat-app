@@ -1,14 +1,21 @@
 import mongoose from "mongoose";
 
-const memberSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+const memberSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
-  isAdmin: {
-    type: Boolean,
-  },
-});
+  {
+    _id: false,
+  }
+);
 
 const chatSchema = new mongoose.Schema(
   {

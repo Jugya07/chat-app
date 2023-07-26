@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.js";
+import chatRoutes from "./routes/chat.js";
 import morgan from "morgan";
 import { auth } from "./middleware/auth.js";
 import globalErrorHandler from "./utils/globalErrorHandler.js";
@@ -24,6 +25,8 @@ app.get("/", auth, (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+app.use("/api/chat", chatRoutes);
+
 app.use(globalErrorHandler);
 
 export default app;
