@@ -1,26 +1,25 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
+import catchAsync from "../utils/catchAsync.js";
+import ApiError from "../utils/ApiError.js";
 
-const auth = async (req, res, next) => {
+const auth = catchAsync(async (req, res, next) => {
   try {
-    const jwt_token = req.headers["authorization"].split(" ")[1];
-    if (!jwt_token) {
-      return res.status(401).json({
-        status: "fail",
-        message: "No access token found",
-      });
+    const authToken = req.headers["authorization"];
+    if (!authToken || !authToken.split(" ")[1]) {
+      return next(new ApiError("No access token found", 400));
     }
-    const decodedToken = jwt.verify(jwt_token, process.env.JWT_SECRET);
+
+    const decodedToken = jwt.verify(
+      authToken.split(" ")[1],
+      process.env.JWT_SECRET
+    );
     const user = await User.findById(decodedToken.id);
     req.user = user;
     next();
   } catch (error) {
-    console.log(error);
-    return res.status(401).json({
-      status: "fail",
-      message: "invalid access token",
-    });
+    next(new ApiError("Invalid / Non existant access token", 401));
   }
-};
+});
 
 export { auth };

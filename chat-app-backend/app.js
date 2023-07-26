@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/user.js";
 import morgan from "morgan";
 import { auth } from "./middleware/auth.js";
+import globalErrorHandler from "./utils/globalErrorHandler.js";
 
 dotenv.config();
 
@@ -23,5 +24,6 @@ app.get("/", auth, (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+app.use(globalErrorHandler);
 
 export default app;
