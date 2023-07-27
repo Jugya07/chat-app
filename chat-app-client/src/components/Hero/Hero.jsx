@@ -1,4 +1,5 @@
 import { useRef, useLayoutEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useArrayRef } from "../../hooks/useArrayRef";
@@ -10,6 +11,8 @@ const Hero = () => {
 
   const triggerRef = useRef(null);
   const containerRef = useRef(null);
+  const whitebg = useRef(null);
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -26,7 +29,6 @@ const Hero = () => {
       });
       gsap.to(`.${styles.title}`, {
         scrollTrigger: {
-          // trigger: containerRef.current,
           scrub: true,
           start: "top 20%",
           end: "bottom center",
@@ -36,7 +38,6 @@ const Hero = () => {
       });
       gsap.to(`.${styles.btncontainer}`, {
         scrollTrigger: {
-          // trigger: `.${styles.btncontainer}`,
           scrub: true,
           start: "top top",
           end: "bottom top",
@@ -50,8 +51,30 @@ const Hero = () => {
       ctx.revert();
     };
   }, [letterRef]);
+
+  const handleLoginClick = () => {
+    gsap.to(whitebg.current, {
+      clipPath: "circle(100% at 100% 0)",
+      duration: 2,
+    });
+    setTimeout(() => {
+      navigate("/login");
+    }, 500);
+  };
+
+  const handleSignupClick = () => {
+    gsap.to(whitebg.current, {
+      clipPath: "circle(100% at 100% 0)",
+      duration: 2,
+    });
+    setTimeout(() => {
+      navigate("/signup");
+    }, 500);
+  };
+
   return (
     <div className={styles.container} ref={containerRef}>
+      <div className={styles.whiteBg} ref={whitebg}></div>
       <div className={styles.subtitle}>
         <p>
           “CONNECTING <br />
@@ -62,7 +85,12 @@ const Hero = () => {
         <h1>CHATSYNC</h1>
       </div>
       <div className={styles.btncontainer}>
-        <button className={`${styles.btn} ${styles.login}`}>Login</button>
+        <button
+          className={`${styles.btn} ${styles.login}`}
+          onClick={handleLoginClick}
+        >
+          Login
+        </button>
         <div className={styles.scroll} ref={triggerRef}>
           <span ref={setLetterRef}>S</span>
           <span ref={setLetterRef}>C</span>
@@ -71,7 +99,12 @@ const Hero = () => {
           <span ref={setLetterRef}>L</span>
           <span ref={setLetterRef}>L</span>
         </div>
-        <button className={`${styles.btn} ${styles.signup}`}>Signup</button>
+        <button
+          className={`${styles.btn} ${styles.signup}`}
+          onClick={handleSignupClick}
+        >
+          Signup
+        </button>
       </div>
     </div>
   );
