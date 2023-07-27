@@ -1,33 +1,23 @@
-import { Outlet, NavLink } from "react-router-dom";
+// import { Outlet, NavLink } from "react-router-dom";
+import { ReactLenis } from "@studio-freight/react-lenis";
+import Hero from "../Hero/Hero";
+import Desc from "../Desc/Desc";
+import Profiles from "../Profiles/Profiles";
 import styles from "./Main.module.css";
+import Features from "../Features/Features";
+import Footer from "../Footer/Footer";
 
 const Main = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.card}>
-        <div className={styles.btns}>
-          <NavLink
-            to="/login"
-            className={({ isActive }) => (isActive ? styles.active : undefined)}
-            end
-          >
-            Login
-          </NavLink>
-          <span className={styles.slash}>|</span>
-          <NavLink
-            to="/signup"
-            className={({ isActive }) => (isActive ? styles.active : undefined)}
-            end
-          >
-            Signup
-          </NavLink>
-          <div></div>
-        </div>
-        <div className={styles.content}>
-          <Outlet />
-        </div>
+    <ReactLenis root>
+      <div className={styles.container}>
+        <Hero />
+        <Desc />
+        <Features />
+        <Profiles />
+        <Footer />
       </div>
-    </div>
+    </ReactLenis>
   );
 };
 
