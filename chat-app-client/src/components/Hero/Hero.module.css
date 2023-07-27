@@ -1,0 +1,85 @@
+.container {
+  position: relative;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Kanit", sans-serif;
+}
+
+.subtitle {
+  font-size: 3rem;
+  & p {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.title {
+  font-size: 5rem;
+  & h1 {
+    margin: 0;
+  }
+}
+
+.btncontainer{
+    margin-top: 2rem;
+    width: 80%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    & .btn{
+        color: white;
+        font-size: 2rem;
+        padding: auto;
+        width: 10rem;
+        background-color: transparent;
+        border: 1px solid #00ffff;
+        border-radius: 50px;
+        outline: none;
+        cursor: pointer;
+        overflow: hidden;
+        transition: 0.6s;
+        position: relative;
+    }
+    & .scroll{
+        color: grey;
+        font-size: small;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+    }
+}
+   .btn:before, .btn:after{
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      height: 100%;
+      filter: blur(30px);
+      opacity: 0.4;
+      transition: 0.6s;
+    }
+    .btn:before{
+      width: 60px;
+      background: rgba(255,255,255,0.6);
+      transform: translateX(-130px) skewX(-45deg);
+    }
+    .btn:after{
+      width: 30px;
+      background: rgba(255,255,255,0.6);
+      transform: translateX(-130px) skewX(-45deg);
+    }
+    .btn:hover:before,
+    .btn:hover:after{
+      opacity: 0.6;
+      transform: translateX(320px) skewX(-45deg);
+    }
+    .btn:hover{
+      color: #00ffff;
+    }
+    .btn:hover{
+      background: rgb(96, 95, 95);
+    }
