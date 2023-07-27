@@ -2,7 +2,7 @@ import { useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useArrayRef } from "../../hooks/useArrayRef";
-import styles from "./Hero.module.css";
+import styles from "./Hero.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {

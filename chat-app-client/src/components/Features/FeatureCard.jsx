@@ -1,4 +1,4 @@
-import styles from "./Features.module.css";
+import styles from "./Features.module.scss";
 
 // eslint-disable-next-line react/prop-types
 const FeatureCard = ({ setSectionRef, setDivRef, num, title }) => {

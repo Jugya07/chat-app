@@ -1,5 +1,5 @@
 import { Form, useActionData } from "react-router-dom";
-import styles from "./SignupPage.module.css";
+import styles from "./SignupPage.module.scss";
 
 // eslint-disable-next-line react/prop-types
 const SignupPage = ({ method }) => {

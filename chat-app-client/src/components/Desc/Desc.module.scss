@@ -7,11 +7,11 @@
   align-items: center;
   flex-direction: column;
   font-family: "Kanit", sans-serif;
-  & div{
+  div {
       width: 80%;
       text-align: center;
       z-index: 5;
-    }
+  }
 }
 
 .whiteBg{
@@ -24,7 +24,7 @@
 }
 
 .text {
-    color: transparent;
+  color: transparent;
   font-size: 3rem;
   font-weight: 600;
   -webkit-text-stroke: 0.2px #00ffff;  
