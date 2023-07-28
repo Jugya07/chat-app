@@ -30,7 +30,7 @@ const SignupPage = ({ method }) => {
             id="name"
             required="required"
             placeholder="Username"
-            autoComplete="none"
+            // autoComplete="off"
           />
           {/* <label htmlFor="name">Name</label> */}
         </div>
@@ -41,7 +41,7 @@ const SignupPage = ({ method }) => {
             id="email"
             required="required"
             placeholder="Email"
-            autoComplete="none"
+            autoComplete="off"
           />
           {/* <label htmlFor="email">Email</label> */}
         </div>

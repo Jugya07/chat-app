@@ -31,7 +31,7 @@ const LoginPage = ({ method }) => {
             name="email"
             id="email"
             required
-            autoComplete="none"
+            autoComplete="off"
             placeholder="Email"
           />
         </div>

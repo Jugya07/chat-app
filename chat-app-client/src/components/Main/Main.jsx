@@ -1,4 +1,3 @@
-// import { Outlet } from "react-router-dom";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import Hero from "../Hero/Hero";
 import Desc from "../Desc/Desc";
@@ -11,7 +10,6 @@ const Main = () => {
   return (
     <ReactLenis root>
       <div className={styles.container}>
-        {/* <Outlet /> */}
         <Hero />
         <Desc />
         <Features />

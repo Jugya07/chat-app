@@ -14,12 +14,12 @@ const router = createBrowserRouter([
     element: <Main />,
   },
   {
-    path: "login",
+    path: "/login",
     element: <LoginPage method="POST" />,
     action: loginAction,
   },
   {
-    path: "signup",
+    path: "/signup",
     element: <SignupPage method="POST" />,
     action: signupAction,
   },

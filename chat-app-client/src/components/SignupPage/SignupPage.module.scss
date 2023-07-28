@@ -46,6 +46,10 @@
     outline: none;
     padding-bottom: 1rem;
   }
+  input:-internal-autofill-selected {
+    color:white !important;
+    background-color: transparent !important;
+  }
 
   // label {
   //   position: absolute;

@@ -6,7 +6,6 @@ export async function action({ request }) {
     name: data.get("name"),
     email: data.get("email"),
     password: data.get("password"),
-    pic: data.get("pic"),
   };
 
   let url = "http://127.0.0.1:5000/api/user/signup";
