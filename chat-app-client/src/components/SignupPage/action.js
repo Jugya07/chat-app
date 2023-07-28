@@ -18,9 +18,11 @@ export async function action({ request }) {
     body: JSON.stringify(signupData),
   });
 
-  if (!response.ok) {
-    return { message: "Fill the fields Properly! " };
-  }
+  const responseBody = await response.json();
 
-  return redirect("/");
+  if (responseBody.status !== "success") {
+    return { message: responseBody.message };
+  }
+  localStorage.setItem("token", responseBody.token);
+  return redirect("/chat");
 }

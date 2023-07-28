@@ -1,9 +1,5 @@
-// import { Suspense } from "react";
-import { useLoaderData } from "react-router-dom";
-
 const ChatsPage = () => {
-  const response = useLoaderData();
-  return <div>{response.chats}</div>;
+  return <div>Hello</div>;
 };
 
 export default ChatsPage;
