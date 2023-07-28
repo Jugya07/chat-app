@@ -47,4 +47,16 @@ const createChat = catchAsync(async (req, res, next) => {
   });
 });
 
-export default { createChat };
+const getAllChats = catchAsync(async (req, res, next) => {
+  await req.user.populate({
+    path: "chats",
+    select: "_id name members",
+  });
+
+  return res.status(200).json({
+    status: "success",
+    chats: req.user.chats,
+  });
+});
+
+export default { createChat, getAllChats };
