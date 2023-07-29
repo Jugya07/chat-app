@@ -7,6 +7,7 @@ import { action as loginAction } from "./components/LoginPage/action";
 import { action as signupAction } from "./components/SignupPage/action";
 import SignupPage from "./components/SignupPage/SignupPage";
 import "./App.css";
+import Loader from "./components/Loader/Loader";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
     path: "/chat",
     element: <ChatsPage />,
     loader: chatsLoader,
+  },
+  {
+    path: "/loader",
+    element: <Loader />,
   },
 ]);
 

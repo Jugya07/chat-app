@@ -73,40 +73,42 @@ const Hero = () => {
   };
 
   return (
-    <div className={styles.container} ref={containerRef}>
-      <div className={styles.whiteBg} ref={whitebg}></div>
-      <div className={styles.subtitle}>
-        <p>
-          “CONNECTING <br />
-          HEARTS & MINDS”
-        </p>
-      </div>
-      <div className={styles.title}>
-        <h1>CHATSYNC</h1>
-      </div>
-      <div className={styles.btncontainer}>
-        <button
-          className={`${styles.btn} ${styles.login}`}
-          onClick={handleLoginClick}
-        >
-          Login
-        </button>
-        <div className={styles.scroll} ref={triggerRef}>
-          <span ref={setLetterRef}>S</span>
-          <span ref={setLetterRef}>C</span>
-          <span ref={setLetterRef}>R</span>
-          <span ref={setLetterRef}>O</span>
-          <span ref={setLetterRef}>L</span>
-          <span ref={setLetterRef}>L</span>
+    <>
+      <div className={styles.container} ref={containerRef}>
+        <div className={styles.whiteBg} ref={whitebg}></div>
+        <div className={styles.subtitle}>
+          <p>
+            “CONNECTING <br />
+            HEARTS & MINDS”
+          </p>
         </div>
-        <button
-          className={`${styles.btn} ${styles.signup}`}
-          onClick={handleSignupClick}
-        >
-          Signup
-        </button>
+        <div className={styles.title}>
+          <h1>CHATSYNC</h1>
+        </div>
+        <div className={styles.btncontainer}>
+          <button
+            className={`${styles.btn} ${styles.login}`}
+            onClick={handleLoginClick}
+          >
+            Login
+          </button>
+          <div className={styles.scroll} ref={triggerRef}>
+            <span ref={setLetterRef}>S</span>
+            <span ref={setLetterRef}>C</span>
+            <span ref={setLetterRef}>R</span>
+            <span ref={setLetterRef}>O</span>
+            <span ref={setLetterRef}>L</span>
+            <span ref={setLetterRef}>L</span>
+          </div>
+          <button
+            className={`${styles.btn} ${styles.signup}`}
+            onClick={handleSignupClick}
+          >
+            Signup
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

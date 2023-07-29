@@ -31,5 +31,4 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 
 app.use(globalErrorHandler);
-
 export default app;
