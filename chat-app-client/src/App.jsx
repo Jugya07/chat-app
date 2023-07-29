@@ -6,23 +6,22 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import { action as loginAction } from "./components/LoginPage/action";
 import { action as signupAction } from "./components/SignupPage/action";
 import SignupPage from "./components/SignupPage/SignupPage";
+import "./App.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    children: [
-      {
-        path: "login",
-        element: <LoginPage method="POST" />,
-        action: loginAction,
-      },
-      {
-        path: "signup",
-        element: <SignupPage method="POST" />,
-        action: signupAction,
-      },
-    ],
+  },
+  {
+    path: "/login",
+    element: <LoginPage method="POST" />,
+    action: loginAction,
+  },
+  {
+    path: "/signup",
+    element: <SignupPage method="POST" />,
+    action: signupAction,
   },
   {
     path: "/chat",

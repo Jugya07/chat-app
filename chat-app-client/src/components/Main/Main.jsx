@@ -1,4 +1,3 @@
-// import { Outlet, NavLink } from "react-router-dom";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import Hero from "../Hero/Hero";
 import Desc from "../Desc/Desc";

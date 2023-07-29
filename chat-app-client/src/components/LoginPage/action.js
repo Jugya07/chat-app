@@ -17,13 +17,12 @@ export async function action({ request }) {
     body: JSON.stringify(loginData),
   });
 
-  // if (response.status === 422) {
-  //   return response;
-  // }
+  const responseBody = await response.json();
 
-  if (!response.ok) {
-    return { message: "Invalid Credentials! " };
+  console.log(responseBody);
+  if (responseBody.status !== "success") {
+    return { message: responseBody.message };
   }
-
+  localStorage.setItem("token", responseBody.token);
   return redirect("/chat");
 }
