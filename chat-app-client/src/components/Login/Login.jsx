@@ -11,7 +11,7 @@ const Login = ({ method }) => {
   useLayoutEffect(() => {
     gsap.to(wrapper.current, {
       clipPath: "circle(0% at 100% 0)",
-      duration: 1,
+      duration: 0.6,
     });
   }, []);
 
