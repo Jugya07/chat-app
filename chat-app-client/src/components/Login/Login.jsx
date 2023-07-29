@@ -1,22 +1,24 @@
 import { useRef, useLayoutEffect } from "react";
 import { Form, useActionData } from "react-router-dom";
 import gsap from "gsap";
-import styles from "./SignupPage.module.scss";
+import styles from "./Login.module.scss";
 
 // eslint-disable-next-line react/prop-types
-const SignupPage = ({ method }) => {
+const Login = ({ method }) => {
   const wrapper = useRef(null);
   const data = useActionData();
+
   useLayoutEffect(() => {
     gsap.to(wrapper.current, {
       clipPath: "circle(0% at 100% 0)",
       duration: 1,
     });
   }, []);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.whiteBg} ref={wrapper}></div>
-      <h2 className={styles.title}>START YOUR CONVERSATION</h2>
+      <h2 className={styles.title}>WELCOME BACK</h2>
       <Form method={method} className={styles.container}>
         {data && (
           <>
@@ -26,24 +28,12 @@ const SignupPage = ({ method }) => {
         <div>
           <input
             type="text"
-            name="name"
-            id="name"
-            required="required"
-            placeholder="Username"
-            // autoComplete="off"
-          />
-          {/* <label htmlFor="name">Name</label> */}
-        </div>
-        <div>
-          <input
-            type="text"
             name="email"
             id="email"
-            required="required"
-            placeholder="Email"
+            required
             autoComplete="off"
+            placeholder="Email"
           />
-          {/* <label htmlFor="email">Email</label> */}
         </div>
         <div>
           <input
@@ -53,24 +43,13 @@ const SignupPage = ({ method }) => {
             required="required"
             placeholder="Password"
           />
-          {/* <label htmlFor="password">Password</label> */}
         </div>
-        {/* <div className={styles.dp}>
-        <input
-          type="file"
-          name="dp"
-          id="dp"
-          accept="image/*"
-          onChange={uploadPic}
-        />
-        <label htmlFor="dp">Your Picture</label>
-      </div> */}
-        <button type="submit" className={styles.btn}>
-          Signup
+        <button type="submit" className={`${styles.btn} ${styles.login}`}>
+          Login
         </button>
       </Form>
     </div>
   );
 };
 
-export default SignupPage;
+export default Login;

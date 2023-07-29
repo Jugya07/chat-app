@@ -1,8 +1,8 @@
 import { useRef, useLayoutEffect } from "react";
-import FeatureCard from "./FeatureCard";
-import styles from "./Features.module.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import FeatureCard from "./FeatureCard";
+import styles from "./Features.module.scss";
 import { useArrayRef } from "../../hooks/useArrayRef";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -82,7 +82,7 @@ const Features = () => {
           />
           <mask
             id="mask0_0_1"
-            style={{ "mask-type": "alpha" }}
+            style={{ maskType: "alpha" }}
             maskUnits="userSpaceOnUse"
             x="0"
             y="0"

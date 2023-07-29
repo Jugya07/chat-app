@@ -17,15 +17,18 @@ const Hero = () => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(letterRef.current, {
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          scrub: true,
-          start: "top 60%",
-          end: "bottom center",
-        },
+        // scrollTrigger: {
+        //   trigger: triggerRef.current,
+        //   scrub: true,
+        //   start: "top 60%",
+        //   end: "bottom center",
+        // },
         color: "#00ffff",
-        duration: 3,
-        stagger: 1,
+        duration: 0.1,
+        stagger: 0.1,
+        yoyo: 1,
+        repeat: -1,
+        repeatDelay: 1,
       });
       gsap.to(`.${styles.title}`, {
         scrollTrigger: {

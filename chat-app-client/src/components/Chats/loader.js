@@ -1,6 +1,4 @@
-// import { json } from "react-router-dom";
-
-const chatsLoader = async () => {
+const loader = async () => {
   const token = localStorage.getItem("token");
 
   const response = await fetch("http://localhost:5000/api/chat", {
@@ -13,4 +11,4 @@ const chatsLoader = async () => {
   return null;
 };
 
-export default chatsLoader;
+export { loader };

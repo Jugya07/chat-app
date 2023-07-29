@@ -1,24 +1,22 @@
 import { useRef, useLayoutEffect } from "react";
 import { Form, useActionData } from "react-router-dom";
 import gsap from "gsap";
-import styles from "./LoginPage.module.scss";
+import styles from "./Signup.module.scss";
 
 // eslint-disable-next-line react/prop-types
-const LoginPage = ({ method }) => {
+const Signup = ({ method }) => {
   const wrapper = useRef(null);
   const data = useActionData();
-
   useLayoutEffect(() => {
     gsap.to(wrapper.current, {
       clipPath: "circle(0% at 100% 0)",
       duration: 1,
     });
   }, []);
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.whiteBg} ref={wrapper}></div>
-      <h2 className={styles.title}>WELCOME BACK</h2>
+      <h2 className={styles.title}>START YOUR CONVERSATION</h2>
       <Form method={method} className={styles.container}>
         {data && (
           <>
@@ -28,11 +26,20 @@ const LoginPage = ({ method }) => {
         <div>
           <input
             type="text"
+            name="name"
+            id="name"
+            required="required"
+            placeholder="Username"
+          />
+        </div>
+        <div>
+          <input
+            type="text"
             name="email"
             id="email"
-            required
-            autoComplete="off"
+            required="required"
             placeholder="Email"
+            autoComplete="off"
           />
         </div>
         <div>
@@ -44,12 +51,12 @@ const LoginPage = ({ method }) => {
             placeholder="Password"
           />
         </div>
-        <button type="submit" className={`${styles.btn} ${styles.login}`}>
-          Login
+        <button type="submit" className={styles.btn}>
+          Signup
         </button>
       </Form>
     </div>
   );
 };
 
-export default LoginPage;
+export default Signup;
