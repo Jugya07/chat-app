@@ -47,7 +47,7 @@ const login = catchAsync(async (req, res, next) => {
   user.password = undefined;
   user.salt = undefined;
   return res.json({
-    status: "sucess",
+    status: "success",
     message: "User logged in successfully",
     user: user,
     token: generateTokenId(user._id),

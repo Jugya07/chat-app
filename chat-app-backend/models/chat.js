@@ -27,13 +27,28 @@ const chatSchema = new mongoose.Schema(
       type: [memberSchema],
       required: true,
     },
-    messages: {
-      type: [mongoose.Schema.Types.ObjectId],
-      ref: "Message",
-    },
   },
-  { timestamps: true }
+  {
+    id: false,
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
+  }
 );
 
-const Chat = mongoose.model("Chat", chatSchema);
+chatSchema.virtual("memberCount").get(function () {
+  return this.members.length;
+});
+
+chatSchema.virtual("messages", {
+  ref: "Message",
+  localField: "_id",
+  foreignField: "chat",
+});
+
+const Chat = mongoose.models.Chat || mongoose.model("Chat", chatSchema);
 export default Chat;
