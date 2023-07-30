@@ -119,6 +119,21 @@ Before hitting protected routes, the frontend application needs to authenticate 
 	}
 ```
 
+### 5. Exit Chat
+
+- **Endpoint:** `/api/chat/exit/:chatID`
+- **Method:** `POST`
+- **Protected:** `True`
+- **Description:** Exits the chat [if not admin]
+- **Expected Response:**
+
+```javascript
+	{
+		status: "success",
+		message: "Chat exited successfully
+	}
+```
+
 ## Error Handling
 
 The server will return appropriate error responses in case of invalid requests or server errors. The frontend application is expected to handle these errors with relevant prompts or toasts.

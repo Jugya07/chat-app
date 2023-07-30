@@ -97,4 +97,46 @@ const getChat = catchAsync(async (req, res, next) => {
   });
 });
 
-export default { createChat, getAllChats, getChat };
+const exitChat = catchAsync(async (req, res, next) => {
+  const chatId = req.params.id;
+
+  /*
+    Return if the provided chat id is not in the users `chats` list
+  */
+  if (!req.user.chats.find((id) => id.toString() === chatId)) {
+    return next(new ApiError("Invalid chat id", 401));
+  }
+
+  /*
+    Return if the provided chat is not found in the db
+  */
+  const chat = await Chat.findById(chatId);
+  if (!chat) {
+    return next(new ApiError("Invalid chat id", 404));
+  }
+
+  /*
+    Return if the logged in user is the admin of the chat
+  */
+  const member = chat.members.find(({ user }) => user.equals(req.user._id));
+  if (member.isAdmin) {
+    return next(
+      new ApiError("Admin cannot leave the chat - delete the chat instead", 400)
+    );
+  }
+
+  await performTransaction(async () => {
+    chat.members = chat.members.filter(({ user }) => {
+      return user.toString() !== req.user._id;
+    });
+    req.user.chats = req.user.filter((id) => id.toString() !== chatId);
+    await Promise.all([req.user.save(), chat.save()]);
+  });
+
+  return res.status(200).json({
+    status: "success",
+    message: "Chat exited successfully",
+  });
+});
+
+export default { createChat, getAllChats, getChat, exitChat };
