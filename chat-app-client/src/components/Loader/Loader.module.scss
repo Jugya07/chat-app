@@ -19,7 +19,8 @@
   background: rgb(228, 228, 228);
   background: linear-gradient(
     90deg,
-    rgba(228, 228, 228, 1) var(--count),
+    // rgba(228, 228, 228, 1) var(--count),
+    rgba(0,206,228,1) var(--count),
     rgba(62, 61, 61, 1) var(--count)
   );
   background-clip: text;

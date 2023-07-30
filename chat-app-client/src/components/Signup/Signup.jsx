@@ -1,5 +1,5 @@
 import { useRef, useLayoutEffect } from "react";
-import { Form, useActionData } from "react-router-dom";
+import { Form, useActionData, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import styles from "./Signup.module.scss";
 
@@ -7,15 +7,28 @@ import styles from "./Signup.module.scss";
 const Signup = ({ method }) => {
   const wrapper = useRef(null);
   const data = useActionData();
+  const navigate = useNavigate();
   useLayoutEffect(() => {
     gsap.to(wrapper.current, {
       clipPath: "circle(0% at 100% 0)",
       duration: 0.6,
     });
   }, []);
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.whiteBg} ref={wrapper}></div>
+      <button
+        className={styles.homeBtn}
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        &lArr;
+      </button>
       <h2 className={styles.title}>START YOUR CONVERSATION</h2>
       <Form method={method} className={styles.container}>
         {data && (
@@ -55,6 +68,12 @@ const Signup = ({ method }) => {
           Signup
         </button>
       </Form>
+      <h2 className={styles.checker}>
+        Already have an account?{" "}
+        <button className={styles.smallBtn} onClick={handleLoginClick}>
+          Login
+        </button>
+      </h2>
     </div>
   );
 };

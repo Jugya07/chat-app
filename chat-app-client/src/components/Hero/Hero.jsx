@@ -32,8 +32,8 @@ const Hero = () => {
           start: "top 20%",
           end: "bottom center",
         },
-        y: -300,
-        duration: 1,
+        y: -400,
+        duration: 0.8,
       });
       gsap.to(`.${styles.btncontainer}`, {
         scrollTrigger: {
@@ -82,7 +82,11 @@ const Hero = () => {
           </p>
         </div>
         <div className={styles.title}>
-          <h1>CHATSYNC</h1>
+          <h1>
+            <span>CHAT</span>
+            <span>SYNC</span>
+          </h1>
+          {/* <h1>CHATSYNC</h1> */}
         </div>
         <div className={styles.btncontainer}>
           <button

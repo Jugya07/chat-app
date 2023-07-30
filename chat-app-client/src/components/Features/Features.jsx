@@ -37,7 +37,7 @@ const Features = () => {
           start: "-50% top",
           end: "+=3000",
         },
-        xPercent: -100 * (sectionRef.current.length - 1),
+        xPercent: -120 * (sectionRef.current.length - 1),
         ease: "none",
       });
       gsap.to(scrollBarRef.current, {

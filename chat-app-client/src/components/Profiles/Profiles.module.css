@@ -4,8 +4,13 @@
   inherits: false;
 }
 
+:root {
+  --mobile: 600px;
+  --tablet: 1000px;
+}
+
 .container {
-  margin-top: 5rem;
+  margin-top: 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +22,7 @@
   font-size: 3rem;
   font-weight: 100;
   margin: 0;
+  text-align: center;
 }
 
 .profiles {
@@ -75,4 +81,14 @@
   100% {
     --angle: 360deg;
   }
+}
+
+
+@media (max-width: 600px) {
+  .container h2{
+    font-size: 2rem;
+  }
+}
+@media (min-width:var(--mobile)) and (max-width:var(--tablet)) {
+
 }
